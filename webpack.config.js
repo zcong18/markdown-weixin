@@ -61,13 +61,6 @@ module.exports = {
                 from: "favicon.ico",
                 to: '../favicon.ico',
                 force: true
-            },
-            { 
-                context: path.join(__dirname, './src'),
-                from: "CNAME",
-                to: '../CNAME',
-                toType: 'file',
-                force: true
             }
         ])
     ]
