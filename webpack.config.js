@@ -12,7 +12,7 @@ module.exports = {
     },
     //入口文件输出配置
     output: {
-        path: 'docs/js/',
+        path: path.join(__dirname, './dist/js'),
         filename: '[name].js'
     },
     module: {

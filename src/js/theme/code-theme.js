@@ -21,7 +21,6 @@ var themes = [
   'atelier-seaside-light',
   'atelier-sulphurpool-dark',
   'atelier-sulphurpool-light',
-  'github-light',
   'github-v2',
   'github',
   'hemisu-dark',

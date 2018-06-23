@@ -1,15 +1,16 @@
-# Online Markdown Converter
+# Markdown 转换微信公众帐号内容
 
-A online markdown converter specially for Wechat Public formatting.
+一个在线将`Markdown`内容转换成微信公众帐号内容的工具。
 
-- Online Address: <http://md.barretlee.com/>
-- Issue & Suggestion: <https://github.com/barretlee/online-markdown/issues/new>
+- 线上地址: <http://md.qikqiak.com/>
+- 意见反馈: <https://github.com/cnych/online-markdown/issues/new>
 
 ### Changelog
 
+- 替换`google-code-prettify`源为国内`CDN`源
 - 支持更换代码样式主题
 - 代码长度溢出时横向滚动
 
 ### LICENSE
 
-MIT. Thanks for @Phodal.
+MIT. Thanks for @barretlee.
