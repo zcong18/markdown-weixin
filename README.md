@@ -3,7 +3,7 @@
 一个在线将`Markdown`内容转换成微信公众帐号内容的工具。
 
 - 线上地址: <http://md.qikqiak.com/>
-- 意见反馈: <https://github.com/cnych/online-markdown/issues/new>
+- 意见反馈: <https://github.com/cnych/markdown-weixin/issues/new>
 
 ### Changelog
 
