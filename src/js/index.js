@@ -2,7 +2,6 @@ require('../css/index.less');
 
 var $ = require("./jquery-3.1.1.js");
 var showdown = require("./showdown.js");
-var Clipboard = require("./clipboard.min.js");
 var CodeTheme = require("./theme/code-theme");
 var PageTheme = require("./theme/page-theme");
 
@@ -28,6 +27,31 @@ var converter =  new showdown.Converter({
   extensions: ['prettify', 'tasklist', 'footnote'],
   tables: true
 });
+
+function showSnackbar() {
+  var $snackbar = $('#snackbar');
+  $snackbar.addClass('show');
+  setTimeout(() => {
+    $snackbar.removeClass('show');
+  }, 3000);
+}
+
+function CopyToClipboard(containerid) {
+  if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById(containerid));
+      range.select().createTextRange();
+      document.execCommand("copy");
+      showSnackbar();
+  } else if (window.getSelection) {
+      var range = document.createRange();
+       range.selectNode(document.getElementById(containerid));
+       window.getSelection().addRange(range);
+       document.execCommand("copy");
+       showSnackbar();
+  }
+}
+
 /**
  * [OnlineMarkdown description]
  * @type {Object}
@@ -47,7 +71,6 @@ var OnlineMarkdown = {
     this.updateOutput();
     new CodeTheme();
     new PageTheme();
-    new Clipboard('.btn');
   },
   load: function() {
     return $.ajax({
@@ -82,6 +105,10 @@ var OnlineMarkdown = {
         $('#input').fadeOut();
         $('#output').show();
       }
+    });
+    // 复制内容
+    $copy.bind('click', () => {
+      CopyToClipboard('outputCtt');
     });
     if (params.preview) {
       $convert.trigger('click');
