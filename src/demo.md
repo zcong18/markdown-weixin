@@ -6,9 +6,12 @@ GitHub 地址：[https://github.com/cnych/online-markdown](https://github.com/cn
 
 ### Changelog
 
-- 适配 Android
-- 支持代码不转行，横向滚动条
-- 支持页面主题样式配置
+- 直接复制内容到粘贴板，不要手动复制
+- 替换`google-code-prettify`源为国内`CDN`源
+- 支持更换代码样式主题
+- 代码长度溢出时横向滚动
+- **Minikube：** 请先部署并第一个启动 Minikube 。在这个项目的根目录下，有一个脚本 ```createMinikubeEnv.sh``` ，用于销毁之前创建的 Minikube 环境，并用适当的 Kubernetes 上下文初始化一个新的环境。
+- **IBM 私有云:** IBM 私有云提供了 [configure client](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0/manage_cluster/cfc_cli.html)，将配置 Kubernetes CLI 指向一个给定的 IBM 私有云设备。
 
 ### 代码示例
 

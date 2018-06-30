@@ -36,19 +36,19 @@ function showSnackbar() {
   }, 3000);
 }
 
-function CopyToClipboard(containerid) {
+function copyToClipboard(containerid, cb) {
   if (document.selection) {
       var range = document.body.createTextRange();
       range.moveToElementText(document.getElementById(containerid));
       range.select().createTextRange();
       document.execCommand("copy");
-      showSnackbar();
+      cb();
   } else if (window.getSelection) {
       var range = document.createRange();
        range.selectNode(document.getElementById(containerid));
        window.getSelection().addRange(range);
        document.execCommand("copy");
-       showSnackbar();
+       cb();
   }
 }
 
@@ -108,7 +108,9 @@ var OnlineMarkdown = {
     });
     // 复制内容
     $copy.bind('click', () => {
-      CopyToClipboard('outputCtt');
+      copyToClipboard('outputCtt', () => {
+        showSnackbar();
+      });
     });
     if (params.preview) {
       $convert.trigger('click');
@@ -120,7 +122,11 @@ var OnlineMarkdown = {
     $('#output .wrapper').html(val);
     PR.prettyPrint();
     $('#outputCtt li').each(function() {
-      $(this).html('<span><span>' + $(this).html() + '</span></span>');
+      var content = $(this).html();
+      if (content.indexOf('<p>') === 0) {
+        content = content.substr(3, content.length-7);
+      }
+      $(this).html('<span><span>' + content + '</span></span>');
     });
   }
 };
