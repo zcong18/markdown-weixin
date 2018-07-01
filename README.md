@@ -5,6 +5,8 @@
 - 线上地址: <http://md.qikqiak.com/>
 - 意见反馈: <https://github.com/cnych/markdown-weixin/issues/new>
 
+### 效果图
+![dashboard](http://sdn.haimaxy.com/screenshots/markdown-weixin.jpg)
 
 ### TODO
 
