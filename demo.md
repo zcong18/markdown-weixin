@@ -5,7 +5,7 @@
 Markdown 转微信公众帐号内容神器，能让`Markdown`内容，无需作任何调整就能**一键复制**到微信公众号使用，特别针对代码展示做了优化。
 
 
-GitHub 地址：[https://github.com/cnych/online-markdown](https://github.com/cnych/online-markdown)
+GitHub 地址：[https://github.com/cnych/markdown-weixin](https://github.com/cnych/markdown-weixin)
 
 > 使用微信公众号编辑器有一个十分头疼的问题——粘贴出来的代码，格式错乱，而且特别丑。
 
