@@ -1,11 +1,11 @@
 var $ = require("../jquery-3.1.1.js");
 
 var themes = [
-  '默认样式-适合代码',
-  '字号偏大-间距偏大-窄屏模式',
-  '字号偏大-间距偏大-宽屏模式'
+  '适合代码',
+  '窄屏模式',
+  '宽屏模式'
 ];
-var currentTheme = '字号偏大-间距偏大-宽屏模式';
+var currentTheme = '宽屏模式';
 
 let PageTheme = function () {
   this.init();

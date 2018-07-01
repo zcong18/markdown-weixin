@@ -9,13 +9,23 @@
   <meta name="description" content="一款简单易用的将Markdown转换为微信公众号内容的格式化工具，主要针对代码做格式化处理。">
   <title>Markdown转换微信公众号神器</title>
   <script src="./js/index.js?v=6"></script>
-  <link rel="stylesheet" href="./themes/github-v2.css" id="codeThemeId" />
+  <link rel="stylesheet" href="./themes/github.css" id="codeThemeId" />
   <link rel="stylesheet" id="pageThemeId" />
 </head>
 <body>
 <div class="topheader">
-  <a href="https://md.qikqiak.com"><h1>Markdown转微信公众号神器</h1></a>
+  <a href="https://md.qikqiak.com"><h1>Markdown-Weixin</h1></a>
   <ul>
+    <li>
+      <div class="theme-wrapper">
+        <label>页面主题选择：</label><select class="page-theme"></select>
+      </div>
+    </li>
+    <li>
+      <div class="theme-wrapper">
+        <label>代码主题选择：</label><select class="code-theme"></select>
+      </div>
+    </li>
     <li class="forkbtn"><a href="https://github.com/cnych/online-markdown/issues/new" target="_blank">意见反馈</a></li>
     <li><a href="https://blog.qikqiak.com/" target="_blank">关于阳明</a></li>
     <li><iframe allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20px" class="github-star" src="http://ghbtns.com/github-btn.html?user=cnych&amp;repo=online-markdown&amp;type=watch&amp;count=true&amp;size=middle"></iframe></li>
@@ -23,18 +33,9 @@
 </div>
 <textarea id="input" spellcheck="false"></textarea>
 
-<button id="copybtn" class="btn copy-button" style="display:none;">复制</button>
-<button class="btn convert-button">预览</button>
+<button id="copybtn" class="btn copy-button">复制</button>
 
 <div id="output">
-  <div class="themes-config">
-    <div class="theme-wrapper">
-      <label>页面主题选择：</label><select class="page-theme"></select>
-    </div>
-    <div class="theme-wrapper">
-      <label>代码主题选择：</label><select class="code-theme"></select>
-    </div>
-  </div>
   <div class="wrapper" id="outputCtt"></div>
 </div>
 

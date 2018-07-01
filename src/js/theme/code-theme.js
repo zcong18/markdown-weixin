@@ -21,7 +21,6 @@ var themes = [
   'atelier-seaside-light',
   'atelier-sulphurpool-dark',
   'atelier-sulphurpool-light',
-  'github-v2',
   'github',
   'hemisu-dark',
   'hemisu-light',
@@ -33,7 +32,7 @@ var themes = [
   'tranquil-heart',
   'vibrant-ink'
 ];
-var currentTheme = 'atelier-forest-light';
+var currentTheme = 'github';
 
 let CodeTheme = function () {
   this.init();

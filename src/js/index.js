@@ -86,35 +86,40 @@ var OnlineMarkdown = {
     });
   },
   bindEvt: function() {
-    var self = this;
-    $('#input').on('input keydown paste', self.updateOutput);
+    $('#input').on('input keydown paste', this.updateOutput);
+    
     var $copy = $('.copy-button');
-    var $convert = $('.convert-button');
-    $convert.on('click', function() {
-      var $this = $(this);
-      if (self.currentState === 'preview') {
-        self.currentState = 'edit';
-        $this.text('预览');
-        $copy.hide();
-        $('#input').fadeIn();
-        $('#output').hide();
-      } else {
-        self.currentState = 'preview';
-        $this.text('编辑');
-        $copy.show();
-        $('#input').fadeOut();
-        $('#output').show();
-      }
-    });
     // 复制内容
     $copy.bind('click', () => {
       copyToClipboard('outputCtt', () => {
         showSnackbar();
       });
     });
-    if (params.preview) {
-      $convert.trigger('click');
-    }
+
+    // 监听元素滚动
+    var hasInputScroll = false;
+    var hasOutputScroll = false;
+    $('#input').on('scroll', event => {
+      if (hasInputScroll) {
+        hasInputScroll = false;
+      } else {
+        var $output = $('#outputCtt');
+        var outputScrollHeight = (event.currentTarget.scrollTop / event.currentTarget.scrollHeight) * $output.prop("scrollHeight");
+        hasOutputScroll = true;
+        $output.scrollTop(outputScrollHeight);
+      }
+    });
+    $('#outputCtt').on('scroll', event => {
+      if (hasOutputScroll) {
+        hasOutputScroll = false;
+      } else {
+        var $input = $('#input');
+        var inputScrollHeight = (event.currentTarget.scrollTop / event.currentTarget.scrollHeight) * $input.prop("scrollHeight");
+        hasInputScroll = true;
+        $input.scrollTop(inputScrollHeight);
+      }
+    });
+
   },
 
   updateOutput: function () {
@@ -129,6 +134,7 @@ var OnlineMarkdown = {
       $(this).html('<span><span>' + content + '</span></span>');
     });
   }
+
 };
 
 OnlineMarkdown.init();

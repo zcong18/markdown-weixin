@@ -66,6 +66,7 @@ ol {
   background: -ms-linear-gradient(left,#e5e5be 0,#003973 100%);
   background: linear-gradient(to left,#e5e5be 0,#003973 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr= '#e5e5be', endColorstr='#003973', GradientType=1);
+  color: #fff;
 }
 
 .topheader h1 {
@@ -110,14 +111,10 @@ ol {
 }
 
 .topheader ul li a {
-  color: #555;
+  color: #fff;
   display: inline-block;
   height: 100%;
   line-height: 64px;
-}
-
-.topheader ul li a {
-  color: #555;
 }
 
 .topheader ul li a:hover {
@@ -131,6 +128,12 @@ ol {
   transition: none;
 }
 // ======== Input =======
+#input {
+  width: 50%;
+  position: absolute;
+  top: 64px;
+  left: 0px;
+}
 textarea {
   width: 100%;
   margin: 0;
@@ -156,8 +159,9 @@ textarea {
 // ======== Output =======
 #output {
   position: absolute;
+  width: 50%;
   top: 64px;
-  left: 0;
+  left: 50%;
   right: 0;
   bottom: 0;
   resize: none;
@@ -168,6 +172,7 @@ textarea {
     overflow-y: auto;
     height: 100%;
     margin: 20px auto;
+    margin-top: 0px;
     background: #FFF;
     padding: 1rem;
     width: 800px;
@@ -190,24 +195,21 @@ textarea {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  box-shadow: 1px 1px 3px #666;
+  box-shadow: 0px 0px 6px #666;
   cursor: pointer;
 }
 
-.convert-button,
 .copy-button {
+  font-size: 14px;
+  padding: 0;
   position: absolute;
-  right: 110px;
-  z-index: 3;
-  top: 80px;
-  border-radius: 3px;
+  right: 50px;
+  z-index: 10;
+  bottom: 50px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   background-color: #3a6586;
-}
-
-.convert-button {
-  right: 15px;
-  background-color: #e3e4bd;
-  color: #555;
 }
 
 .themes-config {
@@ -243,15 +245,16 @@ textarea {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: #333;
+    background-color: #3a6586;
     color: #fff;
     text-align: center;
-    border-radius: 2px;
+    border-radius: 3px;
     padding: 16px;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 50%;
     bottom: 50px;
+    box-shadow: 1px 1px 3px #666;
 }
 #snackbar.show {
     visibility: visible;
