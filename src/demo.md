@@ -1,68 +1,154 @@
-## Markdown 转微信公众号格式化工具
+>微信公众号：**[k8s技术圈]**
+关注容器技术、关注`Kubernetes`。问题或建议，请公众号留言。
+
+###Markdown-Weixin 简介
+Markdown 转微信公众帐号内容神器，能让`Markdown`内容，无需作任何调整就能**一键复制**到微信公众号使用，特别针对代码展示做了优化。
+
 
 GitHub 地址：[https://github.com/cnych/online-markdown](https://github.com/cnych/online-markdown)
 
-> 使用微信公众号编辑器有一个十分头疼的问题——粘贴出来的代码，格式错乱，而且特别丑。这块编辑器能够解决这个问题。
+> 使用微信公众号编辑器有一个十分头疼的问题——粘贴出来的代码，格式错乱，而且特别丑。
 
-### Changelog
 
+###代码块显示效果
+注：markdown对代码块的语法是开始和结束行都要添加：\`\`\`,其中 \` 为windows键盘左上角那个，如下：
+```yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: haimaxy-sa-rolebinding
+  namespace: kube-system
+subjects:
+- kind: ServiceAccount
+  name: haimaxy-sa
+  namespace: kube-system
+roleRef:
+  kind: Role
+  name: haimaxy-sa-role
+  apiGroup: rbac.authorization.k8s.io
+```
+
+要精确指定语言（如：`java,cpp,css,xml,javascript,python,php,go,kotlin,lua,objectivec`等等）时，在头部直接指定，如：\`\`\`javascript，如下：
+
+```javascript
+function showSnackbar() {
+  var $snackbar = $('#snackbar');
+  $snackbar.addClass('show');
+  setTimeout(() => {
+    $snackbar.removeClass('show');
+  }, 3000);
+}
+``` 
+
+在页面头部提供了很多中**代码主题**风格，可以根据需要选择合适的即可。
+
+###Markdown基本语法
+####标题
+支持6种大小的标题，分别对应`#`,`##`,`###`,`####`,`#####`,`######`，和样式文件中的`h1,...,h6`如：
+#####H5
+######H6
+####行内代码
+如：`AppCompatActivity`类,markdown对行内代码的语法是前后用：\`,其中 \` 为windows键盘左上角那个,
+
+####强调
+**我是强调**
+####斜体
+试试*斜体*
+####强调的斜体
+试试***强调的斜体***
+####删除
+试试 ~~删除~~
+####外链的超链接
+试试外链的超链接：[我是外链的超链接](http://blog.qikqiak.com),markdown对链接的语法为：`[]()`,如：`[我是外链的超链接](http://blog.qikqiak.com)`
+####页内的超链接
+试试页内的超链接：[我是页内的超链接](#jump_1)，注：你先要在要跳转的到地方放置一个类似：`<a id="jump_1">任意内容</a>`的锚点。由`id="jump_1" `来匹配。
+
+
+####有序列表
+1. 有序列表 1
+2. 有序列表 2
+3. 有序列表 3
+
+####无序列表
+- 无序列表 1
+- 无序列表 2 
+- 无序列表 3
+
+####引用块
+只需要在前面加 `>`,如下:
+>我是引用块
+微信公众号：k8s技术圈
+欢迎关注我，一起学习，一起进步，All in Kubernetes!
+
+####分隔线
+***
+
+
+###Markdown扩展语法
+
+####表格 
+| 班级 | 男生 | 女生 |
+|-----|-----|------|
+| 一(7)班 | 30   | 25 |
+| 一(8)班 | 25   | 30 |
+
+注：表格在公众号预览时，可能在PC端显示的不是正确的全屏，但在手机上预览时就会正常显示为全屏的了。
+
+
+###直接支持html,css
+如果你懂html和css，那下面这些效果就不在话下了：
+
+<a href="#jump_1">来个页内跳转</a>，跳转到文未的：`<a id="jump_1">我是页内跳转到的位置</a>` ,对应：`id="jump_1"`
+<span  style="color: #5bdaed; ">先给点颜色你看看</span>
+<span  style="color: #AE87FA; ">再给点颜色你看看</span> 
+<span  style="font-size:1.3em;">试试改变字体大小</span>
+<span  style="font-size:1.3em;font-weight: bold;">改变字体大小，再来个粗体又如何？</span>
+
+<p style="text-align:center">
+试试内容居中
+
+</p>
+
+<p style="text-align:right">
+那内容居右呢？
+</p>
+
+<p style="text-align:center;color:#1e819e;font-size:1.3em;font-weight: bold;">
+来个综合的试试
+<br/>
+第二行
+</p>
+
+
+
+###版本更新记录
+***
+#### TODO
+
+- 自动保存功能
+- 增加多种主题样式
+- 增加本地图片自动上传图床功能
+
+#### Changelog
+版本号：V1.2.0
+更新日期：2018-07-01
+
+- 增加编辑区域和预览区域同步滚动
+- 更改页面样式为左右结构，实时预览
 - 直接复制内容到粘贴板，不要手动复制
 - 替换`google-code-prettify`源为国内`CDN`源
 - 支持更换代码样式主题
 - 代码长度溢出时横向滚动
-- **Minikube：** 请先部署并第一个启动 Minikube 。在这个项目的根目录下，有一个脚本 ```createMinikubeEnv.sh``` ，用于销毁之前创建的 Minikube 环境，并用适当的 Kubernetes 上下文初始化一个新的环境。
-- **IBM 私有云:** IBM 私有云提供了 [configure client](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0/manage_cluster/cfc_cli.html)，将配置 Kubernetes CLI 指向一个给定的 IBM 私有云设备。
 
-### 代码示例
+**更多请参考**：
+[Markdown-Weixin版本更新记录](https://github.com/cnych/markdown-weixin)
 
-```javascript
-var OnlineMarkdown = {
-  init: function() {
-    var self = this;
-    self.load().then(function() {
-      self.start()
-    }).fail(function(){
-      self.start();
-    });
-  },
-  start: function() {
-    this.updateOutput();
-  },
-  load: function() {
-    return $.ajax({
-      type: 'GET',
-      url: params.path || './demo.md',
-      dateType: 'text',
-      timeout: 2000
-    }).then(function(data) {
-      $('#input').val(data);
-    });
-  },
-  updateOutput: function () {
-    var val = this.converter.makeHtml($('#input').val());
-    $('#output .wrapper').html(val);
-    PR.prettyPrint();
-  }
-};
+![qrcode](https://blog.qikqiak.com/img/posts/qrcode_for_gh_d6dd87b6ceb4_430.jpg)
 
-OnlineMarkdown.init();
-```
----
+***
+<a id="jump_1">我是页内跳转到的位置</a>
 
-上面是 `JavaScript`，下面是 `php`：
+### LICENSE
+MIT. Thanks for @barretlee.
 
-```php
-echo 'hello,world'
-```
-
-### 表格示例
-
-| 品类 | 个数 | 备注 |
-|-----|-----|------|
-| 苹果 | 1   | nice |
-| 橘子 | 2   | job |
-
-### 关于阳明
-
-![微信公众号](https://blog.qikqiak.com/img/posts/qrcode_for_gh_d6dd87b6ceb4_430.jpg)
-
+ 
