@@ -34,15 +34,15 @@ var themes = [
 ];
 var currentTheme = 'atelier-sulphurpool-dark';
 
-let CodeTheme = function () {
+let codeTheme = function () {
   this.init();
 };
 
-CodeTheme.prototype.init = function() {
+codeTheme.prototype.init = function() {
   this.bindEvt();
 };
 
-CodeTheme.prototype.bindEvt = function() {
+codeTheme.prototype.bindEvt = function() {
   var $options = $.map(themes, function(item) {
     var selected = currentTheme === item ? ' selected' : '';
     return '<option value="' + item + '"' + selected + '>' + item +'</option>';
@@ -55,4 +55,4 @@ CodeTheme.prototype.bindEvt = function() {
 };
 
 
-module.exports = CodeTheme;
+module.exports = codeTheme;
