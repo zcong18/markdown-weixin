@@ -32,7 +32,7 @@ var themes = [
   'tranquil-heart',
   'vibrant-ink'
 ];
-var currentTheme = 'github';
+var currentTheme = 'tomorrow-night-eighties';
 
 let CodeTheme = function () {
   this.init();

@@ -5,7 +5,7 @@
 Markdown 转微信公众帐号内容神器，能让`Markdown`内容，无需作任何调整就能**一键复制**到微信公众号使用，特别针对代码展示做了优化。
 
 
-GitHub 地址：[https://github.com/cnych/online-markdown](https://github.com/cnych/online-markdown)
+GitHub 地址：[https://github.com/cnych/markdown-weixin](https://github.com/cnych/markdown-weixin)
 
 > 使用微信公众号编辑器有一个十分头疼的问题——粘贴出来的代码，格式错乱，而且特别丑。
 
@@ -38,7 +38,7 @@ function showSnackbar() {
     $snackbar.removeClass('show');
   }, 3000);
 }
-``` 
+```
 
 在页面头部提供了很多中**代码主题**风格，可以根据需要选择合适的即可。
 
@@ -71,7 +71,7 @@ function showSnackbar() {
 
 ####无序列表
 - 无序列表 1
-- 无序列表 2 
+- 无序列表 2
 - 无序列表 3
 
 ####引用块
@@ -86,7 +86,7 @@ function showSnackbar() {
 
 ###Markdown扩展语法
 
-####表格 
+####表格
 | 班级 | 男生 | 女生 |
 |-----|-----|------|
 | 一(7)班 | 30   | 25 |
@@ -100,7 +100,7 @@ function showSnackbar() {
 
 <a href="#jump_1">来个页内跳转</a>，跳转到文未的：`<a id="jump_1">我是页内跳转到的位置</a>` ,对应：`id="jump_1"`
 <span  style="color: #5bdaed; ">先给点颜色你看看</span>
-<span  style="color: #AE87FA; ">再给点颜色你看看</span> 
+<span  style="color: #AE87FA; ">再给点颜色你看看</span>
 <span  style="font-size:1.3em;">试试改变字体大小</span>
 <span  style="font-size:1.3em;font-weight: bold;">改变字体大小，再来个粗体又如何？</span>
 
@@ -151,4 +151,3 @@ function showSnackbar() {
 ### LICENSE
 MIT. Thanks for @barretlee.
 
- 
