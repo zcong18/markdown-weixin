@@ -32,7 +32,7 @@ var themes = [
   'tranquil-heart',
   'vibrant-ink'
 ];
-var currentTheme = 'atelier-sulphurpool-dark';
+var currentTheme = 'tomorrow-night-eighties';
 
 let codeTheme = function () {
   this.init();

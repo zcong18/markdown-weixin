@@ -1,9 +1,9 @@
 var $ = require("../jquery-3.1.1.js");
 
 var themes = [
-  {name: 'default-screen', text: '适合代码'},
-  {name: 'narrow-screen', text: '窄屏模式'},
-  {name: 'wide-screen', text: '宽屏模式'},
+  {'theme': 'default-screen', 'text': '适合代码'},
+  {'theme': 'narrow-screen', 'text': '窄屏模式'},
+  {'theme': 'wide-screen', 'text': '宽屏模式'}
 ];
 var currentTheme = 'wide-screen';
 
@@ -17,8 +17,8 @@ pageTheme.prototype.init = function() {
 
 pageTheme.prototype.bindEvt = function() {
   var $options = $.map(themes, function(item) {
-    var selected = currentTheme === item.name ? ' selected' : '';
-    return '<option value="' + item.name + '"' + selected + '>' + item.text +'</option>';
+    var selected = currentTheme === item.theme ? ' selected' : '';
+    return '<option value="' + item.theme + '"' + selected + '>' + item.text +'</option>';
   });
   $('.page-theme').html($options);
   $('.page-theme').on('change', function() {

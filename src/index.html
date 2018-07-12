@@ -9,7 +9,7 @@
   <meta name="keyword" content="markdown,微信,公众帐号,格式,代码">
   <meta name="description" content="一款简单易用的将Markdown转换为微信公众号内容的格式化工具，主要针对代码做格式化处理。">
   <title>Markdown转换微信公众号神器</title>
-  <script src="./js/index.js?v=1.2.0"></script>
+  <script src="./js/index.js?v=1.2.1.0"></script>
   <link rel="stylesheet" href="./themes/github.css" id="codeThemeId" />
   <link rel="stylesheet" id="pageThemeId" />
   <script>
@@ -17,10 +17,10 @@
     (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?73fab594676e3ec1c7f60cb06149f640";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>      
+  </script>
 </head>
 <body>
 <div class="topheader">
@@ -38,13 +38,12 @@
     </li>
     <li class="forkbtn"><a href="https://github.com/cnych/markdown-weixin/issues/new" target="_blank">意见反馈</a></li>
     <li><a href="https://blog.qikqiak.com/" target="_blank">关于阳明</a></li>
-    <li><iframe allowtransparency="true" frameborder="0" scrolling="0" width="90px" 
-      height="20px" class="github-star" src="https://ghbtns.com/github-btn.html?user=cnych&amp;repo=markdown-weixin&amp;type=watch&amp;count=true&amp;size=middle"></iframe></li>
+    <li><iframe allowtransparency="true" frameborder="0" scrolling="0" width="90px" height="20px" class="github-star" src="https://ghbtns.com/github-btn.html?user=cnych&amp;repo=online-markdown&amp;type=watch&amp;count=true&amp;size=middle"></iframe></li>
   </ul>
 </div>
 <textarea id="input" spellcheck="false"></textarea>
 
-<button id="copybtn" class="btn copy-button">复制</button>
+<button id="copybtn" data-clipboard-action="copy" data-clipboard-target="#outputCtt" class="btn copy-button">复制</button>
 
 <div id="output">
   <div class="wrapper" id="outputCtt"></div>
