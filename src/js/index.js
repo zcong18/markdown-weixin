@@ -4,6 +4,7 @@ var $ = require("./jquery-3.1.1.js");
 var showdown = require("./showdown.js");
 var CodeTheme = require("./theme/code-theme");
 var PageTheme = require("./theme/page-theme");
+var Clipboard = require("./clipboard.min.js");
 
 require("./showdown-plugins/showdown-prettify-for-wechat.js");
 require("./showdown-plugins/showdown-github-task-list.js");
@@ -34,22 +35,6 @@ function showSnackbar() {
   setTimeout(() => {
     $snackbar.removeClass('show');
   }, 3000);
-}
-
-function copyToClipboard(containerid, cb) {
-  if (document.selection) {
-      var range = document.body.createTextRange();
-      range.moveToElementText(document.getElementById(containerid));
-      range.select().createTextRange();
-      document.execCommand("copy");
-      cb();
-  } else if (window.getSelection) {
-      var range = document.createRange();
-       range.selectNode(document.getElementById(containerid));
-       window.getSelection().addRange(range);
-       document.execCommand("copy");
-       cb();
-  }
 }
 
 /**
@@ -87,13 +72,13 @@ var OnlineMarkdown = {
   },
   bindEvt: function() {
     $('#input').on('input keydown paste', this.updateOutput);
-    
-    var $copy = $('.copy-button');
-    // 复制内容
-    $copy.bind('click', () => {
-      copyToClipboard('outputCtt', () => {
+
+    var clipboard = new Clipboard('.copy-button');
+    clipboard.on('success', function(e) {
         showSnackbar();
-      });
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
     });
 
     // 监听元素滚动
@@ -124,6 +109,7 @@ var OnlineMarkdown = {
 
   updateOutput: function () {
     var val = converter.makeHtml($('#input').val());
+    // todo，自动上传图片
     $('#output .wrapper').html(val);
     PR.prettyPrint();
     $('#outputCtt li').each(function() {
