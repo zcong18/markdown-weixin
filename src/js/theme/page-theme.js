@@ -5,7 +5,7 @@ var themes = [
   {'theme': 'narrow-screen', 'text': '窄屏模式'},
   {'theme': 'wide-screen', 'text': '宽屏模式'}
 ];
-var currentTheme = 'wide-screen';
+var currentTheme = 'narrow-screen';
 
 let PageTheme = function () {
   this.init();
